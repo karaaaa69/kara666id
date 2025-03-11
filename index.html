@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun</title>
+    <link rel="icon" href="https://example.com/favicon.ico" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #151616;
+            color: white;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            transition: background-color 0.5s ease-in-out;
+        }
+
+        .container {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .active {
+            opacity: 1;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            font-family: 'Pacifico', cursive;
+            background: rgba(224, 213, 221, 0.8);
+            padding: 10px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .button {
+            background-color: rgba(224, 213, 221, 0.9);
+            padding: 12px 25px;
+            color: black;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #ff69b4;
+            transform: scale(1.1);
+        }
+
+        .message {
+            display: none;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<audio id="bgMusic" autoplay loop>
+    <source src="C:\\Users\\ACER\\Downloads\\Bruno Mars - Just the way you are (sped up)/music.mp3" type="audio/mp3">
+</audio>
+
+<div class="container active" id="page1" style="background-image: url('https://lh3.googleusercontent.com/d/1KcKkmawAZk0aQHz7dAYuktLbb_8MAOW8=w1000');">
+    <h1>🎉 Haloooo Retno!! Selamat ulang tahun yg ke 20 tahun ✨</h1>
+    <p class="page1-text">Sederhana aja yaa hehe</p>
+    <button class="button" id="pesanButton">💌 Buka Pesan</button>
+</div>
+
+<div class="container hidden" id="page2" style="background-image: url('https://lh3.googleusercontent.com/d/1r82iWX9hklR9OfUWpcvGr50Ks2VgeJMo=w1000');">
+    <h1>🎈 Barakallah Fii Umrik, Retno Nurul Latifah! 🎈</h1>
+    <button class="button" id="showMessageButton"> Klik untuk melihat pesan </button>
+    
+    <p class="message" id="message1"> I always pray to Allah...</p>
+    <p class="message" id="message2">Semoga kamu bisa menjaga sholatmu</p>
+    <p class="message" id="message3"> Semoga kamu bisa membahagiakan orangtuamu</p>
+    <p class="message" id="message4"> Semoga kamu selalu dilancarkan segala urusanmu</p>
+    <p class="message" id="message5"> Semoga cita-citamu terwujud</p>
+    <p class="message" id="message6"> Semoga selalu mendapatkan hal-hal baik</p>
+    <p class="message" id="message7"> Semoga selalu dikelilingi orang-orang yang baik</p>
+    <p class="message" id="message8"> Semoga selalu diberikan kesehatan dan kebahagiaan</p>
+    <p class="message" id="message11"> Semoga dikuatkan iman-Nya</p>
+    <p class="message" id="message12"> Semoga diberikan keselamatan dimanapun kamu berada.</p>
+    <p class="message" id="message13"> Ayah dan Ibu selalu diberikan kesehatan dan umur panjang sehingga bisa lihat kamu sukses kelak</p>
+    <p class="message" id="message14"> Mas, Mbak, Arkan, dan Dutak beserta keluarga sehat terusss🤗🤗🤗</p>
+
+    <button class="button hidden" id="nextButton">➡️ Next</button>
+    <button class="button" id="backButton">⬅️ Kembali</button>
+</div>
+
+
+<div class="container hidden" id="page3" style="background-image: url('https://lh3.googleusercontent.com/d/1FVGhVICmccv8ln5_8gWQwUspy8VF37OM=w1000');">
+    <h1> Doa Terbaik Untukmu </h1>
+    <p>When I love someone deeply, I pray for them.</p>
+    <p>I pray for their happiness, their success fi dunya wal akhirah,</p>
+    <p>and that Allah may take care of them in every step they take.</p>
+    <p>Because love is a prayer, and prayer is love.</p>
+    <p>As long as you are under Allah's protection, I'll be the happiest.</p>
+    <p>That's how sincere, and selfless my love truly is.</p>
+    <button class="button" id="backToPage2">⬅️ Kembali</button>
+</div>
+
+<script>
+    document.getElementById('pesanButton').onclick = function() {
+        document.getElementById('page1').classList.remove('active');
+        document.getElementById('page1').classList.add('hidden');
+        document.getElementById('page2').classList.remove('hidden');
+        setTimeout(() => document.getElementById('page2').classList.add('active'), 100);
+    };
+
+    let messageIndex = 0;
+    const messages = document.querySelectorAll('.message');
+    document.getElementById('showMessageButton').onclick = function() {
+        if (messageIndex < messages.length) {
+            messages[messageIndex].style.display = 'block';
+            messageIndex++;
+        }
+        if (messageIndex === messages.length) {
+            document.getElementById('showMessageButton').classList.add('hidden');
+            document.getElementById('nextButton').classList.remove('hidden');
+        }
+    };
+
+    document.getElementById('nextButton').onclick = function() {
+        document.getElementById('page2').classList.remove('active');
+        document.getElementById('page2').classList.add('hidden');
+        document.getElementById('page3').classList.remove('hidden');
+        setTimeout(() => document.getElementById('page3').classList.add('active'), 100);
+    };
+
+    document.getElementById('backButton').onclick = function() {
+        document.getElementById('page2').classList.remove('active');
+        document.getElementById('page2').classList.add('hidden');
+        document.getElementById('page1').classList.remove('hidden');
+        setTimeout(() => document.getElementById('page1').classList.add('active'), 100);
+    };
+
+    document.getElementById('backToPage2').onclick = function() {
+        document.getElementById('page3').classList.remove('active');
+        document.getElementById('page3').classList.add('hidden');
+        document.getElementById('page2').classList.remove('hidden');
+        setTimeout(() => document.getElementById('page2').classList.add('active'), 100);
+    };
+</script>
+
+</body>
+</html>
